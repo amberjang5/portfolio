@@ -77,6 +77,12 @@
   .topbar .links{display:flex; gap:22px; font-family:var(--mono); font-size:12px; color:var(--ink-soft);}
   .topbar .links a{border-bottom:1px solid transparent; padding-bottom:2px; transition:.2s;}
   .topbar .links a:hover{color:var(--blue); border-color:var(--blue);}
+  .topbar-lang{
+    font-family:var(--mono); font-size:12px; color:var(--ink-soft);
+    border:1px solid var(--line); border-radius:100px; padding:5px 13px;
+    background:#fff; cursor:pointer; transition:.2s; letter-spacing:.03em;
+  }
+  .topbar-lang:hover{border-color:var(--blue); color:var(--blue);}
   @media (max-width:600px){ .topbar{padding:18px 20px;} .topbar .links{display:none;} }
 
   /* ===== floating language toggle & top button ===== */
@@ -331,6 +337,7 @@
   <div class="brand">Portfolio</div>
   <div class="links">
     <a href="https://www.behance.net/kelly3789" target="_blank" rel="noopener">Behance ↗</a>
+    <button class="topbar-lang" id="langTop" type="button">EN</button>
   </div>
 </div>
 
@@ -906,20 +913,27 @@
   const html = document.documentElement;
   const fab = document.getElementById('langFab');
   const fabCode = document.getElementById('langFabCode');
+  const langTop = document.getElementById('langTop');
 
   function syncLangLinks(lang){
     document.querySelectorAll('[data-href-ko]').forEach(el=>{
       el.href = lang === 'ko' ? el.dataset.hrefKo : el.dataset.hrefEn;
     });
   }
-  syncLangLinks(html.getAttribute('data-lang'));
-
-  fab.addEventListener('click', ()=>{
-    const next = html.getAttribute('data-lang') === 'ko' ? 'en' : 'ko';
+  function setLang(next){
     html.setAttribute('data-lang', next);
     html.setAttribute('lang', next);
     fabCode.textContent = next === 'ko' ? 'EN' : 'KO';
+    langTop.textContent = next === 'ko' ? 'EN' : 'KO';
     syncLangLinks(next);
+  }
+  syncLangLinks(html.getAttribute('data-lang'));
+
+  fab.addEventListener('click', ()=>{
+    setLang(html.getAttribute('data-lang') === 'ko' ? 'en' : 'ko');
+  });
+  langTop.addEventListener('click', ()=>{
+    setLang(html.getAttribute('data-lang') === 'ko' ? 'en' : 'ko');
   });
 </script>
 </body>
