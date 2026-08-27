@@ -210,6 +210,12 @@
 
   /* ===== CAREER ===== */
   .career-card{border:1px solid var(--line); border-radius:20px; padding:40px; margin-bottom:28px; position:relative; overflow:hidden;}
+  .career-cta{
+    display:inline-flex; align-items:center; gap:9px; margin-top:32px;
+    font-family:var(--mono); font-size:13px; letter-spacing:.02em; color:#fff;
+    background:var(--blue); padding:14px 24px; border-radius:100px; transition:.2s;
+  }
+  .career-cta:hover{background:var(--blue-deep); transform:translateY(-1px);}
   .career-card::before{content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--blue);}
   .career-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:20px;}
   .career-role{font-family:var(--display); font-weight:600; font-size:22px;}
@@ -545,6 +551,10 @@
         </div>
       </div>
     </div>
+
+    <a class="career-cta" href="https://amberjang5.github.io/portfolio/career" target="_blank" rel="noopener">
+      <span class="lang-ko">경력기술서 보러가기</span><span class="lang-en">View Career Statement</span> →
+    </a>
   </div>
 </section>
 
