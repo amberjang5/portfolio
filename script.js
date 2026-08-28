@@ -506,7 +506,7 @@
   /* State + router                                                      */
   /* ------------------------------------------------------------------ */
 
-  var state = { lang: getStoredLang() || "en", page: "home", projFilter: "all", eduFilter: "all", careerExpanded: null, utTab: "first" };
+  var state = { lang: getStoredLang() || "ko", page: "home", projFilter: "all", eduFilter: "all", careerExpanded: null, utTab: "first" };
   var VALID_PAGES = ["home", "career", "projects", "education", "activities", "maeari", "prime", "kepco", "kyobo"];
 
   function setPage(id) {

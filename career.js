@@ -7,7 +7,7 @@
   function storeLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) { /* ignore */ } }
 
   function bi(en, ko) { return { en: en, ko: ko }; }
-  var state = { lang: getStoredLang() || "en" };
+  var state = { lang: getStoredLang() || "ko" };
   function t(x) {
     if (x == null) return "";
     if (typeof x === "string") return x;
